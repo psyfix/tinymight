@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>TINYMIGHT</title>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Search here...">
+
+<body id='body'>
+    <div id="border"></div>
+</body>
+
+</html>
+
+
+<!-- JavaScript That Performs Search Bar Functionality. -->
+
+<script type="module" type="application/javascript" src="./createFindings.js"></script>
+<script>
+const searchbar = document.getElementById('searchBar');
+
+//Start an event if a key is pressed.
+searchbar.addEventListener('keyup', (event) => {
+  const searchKey = event.target.value;
+
+  const details = document.querySelectorAll('.finding-section');
+
+  //Loop through menus and if menu is closed then open.
+  details.forEach(detail => {
+    if (!detail.hasAttribute('open')) {
+    detail.setAttribute('open', true);
+  }
+  })
+
+  // If search bar is empty close all menus.
+  if(searchKey==''){
+    details.forEach(detail => {
+      detail.removeAttribute('open');
+    })
+  }
+
+  // Grab buttons and store in array.
+  const buttons = document.querySelectorAll('.finding-button');
+  //Loop through buttons and if searchKey matches a button then display.
+  buttons.forEach(button => {
+    button.style.display = (button.textContent.toLowerCase().indexOf(searchKey.toLowerCase()) > -1) ? 'block' : 'none';
+  })
+})
+</script>
