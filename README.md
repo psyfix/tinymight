@@ -1,28 +1,27 @@
 # Tinymight
 
-The Tinymight Word Add-in is hosted on an Azure instance.
+Tinymight is a Word-addin that takes docx files and pastes them into Word making reporting easier.
 
-### Deploying
-1. Copy the repository to the server, replacing the current implementation 
-2. Change the user and group to root for all the files 
-3. run the `cron/cronjob.sh` file manually or wait until the cronjob manually executes the file 
+### Enivronment Requirements
+In order to setup and run the application:
+1. nodejs - npm
+2. python3
+3. cron
 
-### Adding a new template
-To add a new template:
-1. Create a new `.docx` file with the template correctly formatted
-2. Copy the new file to its respective category in the repository
-3. Either wait 24 hours until the python script runs and updates the online tool, or manually log in to the Azure server and run `updateFindings.py`
+### Server Deployment
+1. Setup a valid domain and create a subdomain dns A record that will point to the servers IP.
+2. Change the `webpack.config.js` file `urlPRod` variable to reflect the domain created.
+3. Add the `.docx` files to the wordFindings folder.
+4. Configure a server with the environment requirements.
+5. Copy the code to the server.
+6. Change the user and group ownership of all files to root.
+7. Configure the TLS certificates using letsencrypt. (Replace paths to keys in the `tinymight.js` file)
+8. Run the `cronjob.sh` file.  
 
-### How to Contribute
-The requirements to run the development server are: 
-- npm
-- python3
-
-1. Clone the repository
-2. Navigate to the src directory
-3. Start the development server 
-    `npm run dev-server`
-4. Add any extra `.docx` templates to the respective category directory (or create a new one)
-5. edit the `updateFindings.py` file and update the `BASE_PATH` variable to represent your own path
-6. [Sideload the application into Word](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins) using the `dev-manifest.xml`
-7. start committing, just don't push any breaking changes  
+### Contributing
+1. Clone the repository.
+2. Go to the src directory.
+3. Add any extra `.docx` templates to its respective category directory.
+4. edit the `updateFindings.py` file and update the `BASE_PATH` variable to represent your local path.
+5. Start the debug server. `npm run debug`
+6. Push changes to a new branch and create a merge request. 
