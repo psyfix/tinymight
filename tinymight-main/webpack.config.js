@@ -4,10 +4,9 @@ const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const devCerts = require("office-addin-dev-certs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const fs = require('fs')
 
 const urlDev = "https://localhost:3000/";
-const urlProd = "https://example.co.nzz:3000/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProd = "https://example.co.nzz:3000/"; // CHANGE THIS TO PRODUCTION DEPLOYMENT LOCATION
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
@@ -94,6 +93,11 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "fileupload.html",
+        template: "./src/fileupload/fileupload.html",
+        chunks: ["polyfill", "fileupload"],
       }),
     ],
     devServer: {

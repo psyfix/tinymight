@@ -1,5 +1,6 @@
-//Web Application
 import {createFindingsSections, onclickHandler, assignClickHandlers} from './createFindings.js'
+import {searching} from './searchBar.js'
+
 Office.onReady((info) => {
     if (info.host === Office.HostType.Word) {
         // Determine if the user's version of Office supports all the Office.js APIs that are used in the tutorial.
@@ -13,5 +14,7 @@ Office.onReady((info) => {
     let buttonElements = document.getElementsByClassName("finding-button")
     //assign the onclick handler to all the buttons
     assignClickHandlers(buttonElements)
+
+    //searching()
 
 });

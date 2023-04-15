@@ -4,7 +4,7 @@ Tinymight is a Word-addin that takes docx files and pastes them into Word making
 
 ### Enivronment Requirements
 In order to setup and run the application:
-1. nodejs - npm
+1. node packages; multer, helmet, office-addin, office-addin-dev-certs
 2. python3
 3. cron
 
