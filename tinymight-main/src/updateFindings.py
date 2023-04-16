@@ -49,6 +49,6 @@ def save_to_json(data, filename):
         outfile.write("\nexport const base64 = ")
         json.dump(base64_issues, outfile)
 
-path = BASE_PATH + "/taskpane/wordfindings"
+path = BASE_PATH + "/taskpane/templates"
 data = get_directory_map(path)
 save_to_json(data, BASE_PATH + "/taskpane/findings.js")
