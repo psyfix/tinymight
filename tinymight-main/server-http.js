@@ -9,7 +9,11 @@ const app = express();
 
 var DIST_DIR = path.join(__dirname, "/dist/");
 
-//app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 //Serving the files on the dist folder
 app.use(express.json());
