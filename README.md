@@ -34,4 +34,4 @@ In order to setup and run the application:
 
 
 ## Demo
-
+![](https://github.com/psyfix/tinymight/blob/main/demo.gif)
