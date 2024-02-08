@@ -23,7 +23,6 @@ module.exports = async (env, options) => {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       taskpane: "./src/taskpane/taskpane.js",
       commands: "./src/commands/commands.js",
-      fileupload: "./src/fileupload/fileupload.js",
     },
     output: {
       clean: true,
@@ -94,11 +93,6 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"],
-      }),
-      new HtmlWebpackPlugin({
-        filename: "fileupload.html",
-        template: "./src/fileupload/fileupload.html",
-        chunks: ["polyfill", "fileupload"],
       }),
     ],
     devServer: {

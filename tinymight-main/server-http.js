@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require("path")
 const helmet = require("helmet");
-const multer = require("multer");
+// const multer = require("multer");
 
 // Configure & Run the http server
 const app = express();
@@ -24,9 +24,9 @@ app.listen(80, () => {
   console.log('HTTP server running on port 80');
 });
 
-//FILE UPLOAD
+//FILE UPLOAD UNDER DEV
 
-// Start by creating some disk storage options:
+/* Start by creating some disk storage options:
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     var ext = path.extname(file.originalname);
@@ -51,4 +51,4 @@ app.post("/api", upload.array("files"), (req, res) => {
   console.log(req.files); // Logs any files
   res.json({ message: "File(s) uploaded successfully" });
 
-});
+}); */

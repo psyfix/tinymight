@@ -25,3 +25,13 @@ In order to setup and run the application:
 4. edit the `updateFindings.py` file and update the `BASE_PATH` variable to represent your local path.
 5. Start the debug server. `npm run debug`
 6. Push changes to a new branch and create a merge request. 
+
+### Updating Templates
+1. SSH into the server.
+2. Replace the templates folder with the updated findings.
+3. Run the updateFindings.py script.
+4. Restart the server.
+
+
+## Demo
+
